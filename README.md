@@ -6,7 +6,7 @@
 
 ## Install
 
-Installation will clone this repo into ~/.dotfiles and symlink ~/.vim/ and ~/.vimrc
+Installation will clone this repo into ~/.dotfiles and force create symlinks to ~/.vim/ and ~/.vimrc
 
     sh -c "`curl -fsSL https://raw.githubusercontent.com/libreninja/dotfiles/master/install.sh`"
 
