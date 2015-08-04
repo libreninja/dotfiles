@@ -1,0 +1,68 @@
+"*************************************************************** editor settings
+set clipboard=unnamed
+set relativenumber
+set hidden
+set copyindent
+set shiftwidth=4
+set shiftround
+set showmatch
+set ignorecase
+set smartcase
+set undolevels=1000
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title
+set visualbell
+set noerrorbells
+set nobackup
+set noswapfile
+set t_Co=256
+set background=dark
+colorscheme mustang
+
+"******************************************************************      plugins
+call plug#begin()
+function! BuildYCM(info)
+	  " info is a dictionary with 3 fields
+	  " - name:   name of the plugin
+	  " - status: 'installed', 'updated', or 'unchanged'
+	  " - force:  set on PlugInstall! or PlugUpdate!
+	  if a:info.status == 'installed' || a:info.force
+		!./install.sh
+	  endif
+endfunction
+" NERD tree will be loaded on the first invocation of NERDTreeToggle command
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'tpope/vim-sensible'
+Plug 'scrooloose/syntastic'
+Plug 'wookiehangover/jshint.vim'
+Plug 'marijnh/tern_for_vim'
+Plug 'pangloss/vim-javascript'
+Plug 'jiangmiao/auto-pairs'
+call plug#end()
+
+syntax on
+
+"****************************************************************** key mappings
+let mapleader=","
+
+nmap <silent> <leader>v :e $MYVIMRC<CR>
+nmap <silent> <leader>n :NERDTreeToggle<CR>
+nmap <silent> <leader>c :bd<CR>
+
+" move between windows
+map <leader>j <C-w>j
+map <leader>k <C-w>k
+map <leader>h <C-w>h
+map <leader>l <C-w>l
+
+" common operations simplified
+inoremap jj <esc>
+nnoremap ; :
+
+
+"******************************************************************     autocmd
+autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+
+"******************************************************************   functions
+
