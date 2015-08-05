@@ -31,14 +31,16 @@ function! BuildYCM(info)
 	  endif
 endfunction
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
+Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'tpope/vim-sensible'
-Plug 'scrooloose/syntastic'
 Plug 'wookiehangover/jshint.vim'
 Plug 'marijnh/tern_for_vim'
 Plug 'pangloss/vim-javascript'
 Plug 'jiangmiao/auto-pairs'
+Plug 'rstacruz/sparkup'
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 call plug#end()
 
 syntax on
